@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('access_control_groups', function (Blueprint $table) {
-            $table->id();
+            $table->integer('access_control_group_id')->autoIncrement();
+            $table->string('group');
             $table->timestamps();
         });
     }
