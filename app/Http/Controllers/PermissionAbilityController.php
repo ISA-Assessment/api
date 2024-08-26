@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PermissionAbilityCollection;
 use App\Models\PermissionAbility;
 use App\Http\Requests\StorePermissionAbilityRequest;
 use App\Http\Requests\UpdatePermissionAbilityRequest;
@@ -14,6 +15,11 @@ class PermissionAbilityController extends Controller
     public function index()
     {
         //
+        return response()->json([
+            'permissionAbilities' => new PermissionAbilityCollection(
+                PermissionAbility::all()
+            )
+        ], 200);
     }
 
     /**
